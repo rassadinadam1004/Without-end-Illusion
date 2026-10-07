@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бесконечная Спираль Иллюзия</title>
+    <title>Without End Illusion</title>
     <style>
         body { margin: 0; padding: 0; background: #000; overflow: hidden; }
         canvas { display: block; margin: 0 auto; background: #000000; }
@@ -17,7 +17,7 @@
         const canvas = document.getElementById("spiralCanvas");
         const ctx = canvas.getContext("2d");
 
-        // Делаем квадратный холст под размер экрана
+        
         function resize() {
             const size = Math.min(window.innerWidth, window.innerHeight);
             canvas.width = size;
@@ -26,32 +26,30 @@
         resize();
 
         let rotation = 0;
-        const speed = 0.08; // Скорость вращения спирали
+        const speed = 0.08; 
 
         function draw() {
-            // Очищаем экран черным цветом
+            
             ctx.fillStyle = "#000000";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            const cx = canvas.width / 2;  // Центр экрана по X
-            const cy = canvas.height / 2; // Центр экрана по Y
-            const maxRadius = canvas.width * 0.8; // Максимальный размер спирали
-
-            // Крутим спираль, меняя угол
+            const cx = canvas.width / 2;  
+            const cy = canvas.height / 2; 
+            const maxRadius = canvas.width * 0.8; 
+            
             rotation += speed;
 
-            ctx.lineWidth = 6; // Толщина линий спирали
-            ctx.strokeStyle = "#ffffff"; // Белые полосы
-
-            // Рисуем спираль из множества мелких линий
+            ctx.lineWidth = 6; 
+            ctx.strokeStyle = "#ffffff"; 
+            
             ctx.beginShape; 
             ctx.beginPath();
 
             for (let radius = 0; radius < maxRadius; radius += 0.5) {
-                // Математическая формула спирали Архимеда + вращение
+         
                 let angle = 0.1 * radius + rotation;
                 
-                // Переводим полярные координаты в обычные X и Y
+             
                 let x = cx + radius * Math.cos(angle);
                 let y = cy + radius * Math.sin(angle);
 
@@ -68,7 +66,7 @@
 
         draw();
 
-        // Следим за изменением размеров окна
+
         window.addEventListener("resize", () => {
             resize();
         });
